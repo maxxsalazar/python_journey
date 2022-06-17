@@ -1,4 +1,4 @@
-salary = float(input("\nHow much do you earn per year? \n"));
+salary = float(input("\nHow much do you earn per year? \n>>>"));
 fed_gross_income = salary - 12550;
 state_gross_income = salary - 4803;
 fica = 0.0;
@@ -175,8 +175,8 @@ total_state_tax = calc_state_tax(state_gross_income);
 total_tax = total_fed_tax + total_state_tax + fica;
 take_home_pay = salary - total_tax;
 
-print("\nFederal income tax: ${:,.2f}".format(total_fed_tax) + "\nState income tax: ${:,.2f}".format(total_state_tax) + "\nFICA tax: ${:,.2f}".format(fica));
-print("Total income tax: ${:,.2f}".format(total_tax));
-print("Total take-home pay: ${:,.2f}".format(take_home_pay));
+print("\n- Federal income tax: ${:,.2f}".format(total_fed_tax) + "\n- State income tax: ${:,.2f}".format(total_state_tax) + "\n- FICA tax: ${:,.2f}".format(fica));
+print("- Total income tax: ${:,.2f}".format(total_tax));
+print("- Total take-home pay: ${:,.2f}".format(take_home_pay));
 print("\n");
-print("This is an educational project and does not constitue financial advice.\n");
+print("**This is an educational project and does not constitue financial advice.**\n");
