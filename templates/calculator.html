@@ -19,10 +19,35 @@
         <input type="submit" value="Calculate" />
       </form>
     </section>
-    <p>Federal Tax: {{"${:,.2f}".format(fedTax)}}</p>
-    <p>State Tax: {{"${:,.2f}".format(stateTax)}}</p>
-    <p>FICA: {{"${:,.2f}".format(ficaTax)}}</p>
-    <p>Total Taxes Owed: {{"${:,.2f}".format(totalTax)}}</p>
-    <p>Total Take-Home Pay: {{"${:,.2f}".format(takeHome)}}</p>
+    <section>
+      <table>
+        <tr>
+          <th>Tax Concept</th>
+          <th>Amount Due:</th>
+        </tr>
+        <tr>
+          <td>Federal Tax:</td>
+          <td>{{"${:,.2f}".format(fedTax)}}</td>
+        </tr>
+        <tr>
+          <td>State Tax:</td>
+          <td>{{"${:,.2f}".format(stateTax)}}</td>
+        </tr>
+        <tr>
+          <td>FICA:</td>
+          <td>{{"${:,.2f}".format(ficaTax)}}</td>
+        </tr>
+        <tr>
+          <td>Total Taxes Owed:</td>
+          <td>{{"${:,.2f}".format(totalTax)}}</td>
+        </tr>
+        <tr>
+          <td>Total Take-Home Pay:</td>
+          <td>{{"${:,.2f}".format(takeHome)}}</td>
+        </tr>
+      </table>
+    </section>
+
+    <script src="app.js"></script>
   </body>
 </html>
