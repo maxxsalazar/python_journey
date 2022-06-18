@@ -15,5 +15,5 @@ def calculator():
     stateTax = calc_state_tax(int(salary))
     ficaTax = calc_fica_tax(int(salary))
     totalTax = fedTax + stateTax + ficaTax;
-    takeHome = int(salary) - totalTax;
-    return render_template('calculator.html', title='Income Tax Calculator', fedTax=fedTax, stateTax=stateTax, ficaTax=ficaTax,totalTax=totalTax, takeHome=takeHome)
+    netPay = int(salary) - totalTax;
+    return render_template('calculator.html', title='Income Tax Calculator', fedTax=fedTax, stateTax=stateTax, ficaTax=ficaTax,totalTax=totalTax, netPay=netPay)

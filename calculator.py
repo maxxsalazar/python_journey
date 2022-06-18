@@ -169,15 +169,3 @@ def calc_fica_tax(income):
         medicare2 = (income - 200000) * 0.0235;
         fica = sst + medicare1 + medicare2;
     return fica;
-
-# total_fed_tax = calc_fed_tax(350000);
-# total_state_tax = calc_state_tax(350000);
-# total_fica = calc_fica_tax(350000);
-# total_tax = total_fed_tax + total_state_tax + total_fica;
-# take_home_pay = 350000 - total_tax;
-
-# print("\n- Federal income tax: ${:,.2f}".format(total_fed_tax) + "\n- State income tax: ${:,.2f}".format(total_state_tax) + "\n- FICA tax: ${:,.2f}".format(total_fica));
-# print("- Total income tax: ${:,.2f}".format(total_tax));
-# print("- Total take-home pay: ${:,.2f}".format(take_home_pay));
-# print("\n");
-# print("**This is an educational project and does not constitue financial advice.**\n");

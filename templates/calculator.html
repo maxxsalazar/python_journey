@@ -20,34 +20,22 @@
       </form>
     </section>
     <section>
-      <table>
+      <table id="breakdownTable">
         <tr>
           <th>Tax Concept</th>
           <th>Amount Due:</th>
         </tr>
-        <tr>
-          <td>Federal Tax:</td>
-          <td>{{"${:,.2f}".format(fedTax)}}</td>
-        </tr>
-        <tr>
-          <td>State Tax:</td>
-          <td>{{"${:,.2f}".format(stateTax)}}</td>
-        </tr>
-        <tr>
-          <td>FICA:</td>
-          <td>{{"${:,.2f}".format(ficaTax)}}</td>
-        </tr>
-        <tr>
-          <td>Total Taxes Owed:</td>
-          <td>{{"${:,.2f}".format(totalTax)}}</td>
-        </tr>
-        <tr>
-          <td>Total Take-Home Pay:</td>
-          <td>{{"${:,.2f}".format(takeHome)}}</td>
-        </tr>
       </table>
     </section>
 
-    <script src="app.js"></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static', filename='app.js')}}"
+      fedTax="{{'${:,.2f}'.format(fedTax)}}"
+      stateTax="{{'${:,.2f}'.format(stateTax)}}"
+      ficaTax="{{'${:,.2f}'.format(ficaTax)}}"
+      totalTax="{{'${:,.2f}'.format(totalTax)}}"
+      netPay="{{'${:,.2f}'.format(netPay)}}"
+    ></script>
   </body>
 </html>
