@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-from calc2 import *
+from calculator import *
 
 views = Blueprint(__name__, 'views')
 
@@ -16,4 +16,4 @@ def calculator():
     ficaTax = calc_fica_tax(int(salary))
     totalTax = fedTax + stateTax + ficaTax;
     takeHome = int(salary) - totalTax;
-    return render_template('index.html', title='Tax Calculator', fedTax=fedTax, stateTax=stateTax, ficaTax=ficaTax,totalTax=totalTax, takeHome=takeHome)
+    return render_template('calculator.html', title='Income Tax Calculator', fedTax=fedTax, stateTax=stateTax, ficaTax=ficaTax,totalTax=totalTax, takeHome=takeHome)

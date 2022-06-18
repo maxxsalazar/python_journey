@@ -1,21 +1,3 @@
-salary = float(input("\nHow much do you earn per year? \n>>>"));
-fed_gross_income = salary - 12550;
-state_gross_income = salary - 4803;
-fica = 0.0;
-tax = 0.0;
-
-if salary <= 147000:
-    fica = salary * 0.0765;
-elif salary > 147000 and salary <= 200000:
-    sst = 147000 * 0.062;
-    medicare = salary * 0.0145;
-    fica = sst + medicare;
-else:
-    sst = 147000 * 0.062;
-    medicare1 = 200000 * 0.0145;
-    medicare2 = (salary - 200000) * 0.0235;
-    fica = sst + medicare1 + medicare2;
-
 fed_tax_rate = {
     "1": {
         "rate": 0.1,
@@ -96,6 +78,8 @@ fbr5 = (fed_tax_rate["5"]["threshold"] - fed_tax_rate["4"]["threshold"]) * fed_t
 fbr6 = (fed_tax_rate["6"]["threshold"] - fed_tax_rate["5"]["threshold"]) * fed_tax_rate["6"]["rate"];
 
 def calc_fed_tax(income):
+    income -= 12550;
+
     if income <= 0:
         tax = 0.0;
         taxable: 0.0;
@@ -120,7 +104,6 @@ def calc_fed_tax(income):
     elif income > fed_tax_rate["6"]["threshold"]:
         taxable = (income - fed_tax_rate["6"]["threshold"]) * fed_tax_rate["7"]["rate"];
         tax = fbr1 + fbr2 + fbr3 + fbr4 + fbr5 + fbr6 + taxable;
-    # print("Your federal income tax is: $" + str(round(tax)));
     return tax;
 
 
@@ -135,6 +118,7 @@ sbr8 = (state_tax_rate["CA"]["8"]["threshold"] - state_tax_rate["CA"]["7"]["thre
 sbr9 = (state_tax_rate["CA"]["9"]["threshold"] - state_tax_rate["CA"]["8"]["threshold"]) * state_tax_rate["CA"]["9"]["rate"];
 
 def calc_state_tax(income):
+    income -= 4803;
     if income <= 0:
         tax = 0.0;
         taxable: 0.0;
@@ -170,13 +154,30 @@ def calc_state_tax(income):
         tax = sbr1 + sbr2 + sbr3 + sbr4 + sbr5 + sbr6 + sbr7 + sbr8 + sbr9 + taxable;
     return tax;
 
-total_fed_tax = calc_fed_tax(fed_gross_income);
-total_state_tax = calc_state_tax(state_gross_income);
-total_tax = total_fed_tax + total_state_tax + fica;
-take_home_pay = salary - total_tax;
+def calc_fica_tax(income):
+    fica = 0.0;
 
-print("\n- Federal income tax: ${:,.2f}".format(total_fed_tax) + "\n- State income tax: ${:,.2f}".format(total_state_tax) + "\n- FICA tax: ${:,.2f}".format(fica));
-print("- Total income tax: ${:,.2f}".format(total_tax));
-print("- Total take-home pay: ${:,.2f}".format(take_home_pay));
-print("\n");
-print("**This is an educational project and does not constitue financial advice.**\n");
+    if income <= 147000:
+        fica = income * 0.0765;
+    elif income > 147000 and income <= 200000:
+        sst = 147000 * 0.062;
+        medicare = income * 0.0145;
+        fica = sst + medicare;
+    else:
+        sst = 147000 * 0.062;
+        medicare1 = 200000 * 0.0145;
+        medicare2 = (income - 200000) * 0.0235;
+        fica = sst + medicare1 + medicare2;
+    return fica;
+
+# total_fed_tax = calc_fed_tax(350000);
+# total_state_tax = calc_state_tax(350000);
+# total_fica = calc_fica_tax(350000);
+# total_tax = total_fed_tax + total_state_tax + total_fica;
+# take_home_pay = 350000 - total_tax;
+
+# print("\n- Federal income tax: ${:,.2f}".format(total_fed_tax) + "\n- State income tax: ${:,.2f}".format(total_state_tax) + "\n- FICA tax: ${:,.2f}".format(total_fica));
+# print("- Total income tax: ${:,.2f}".format(total_tax));
+# print("- Total take-home pay: ${:,.2f}".format(take_home_pay));
+# print("\n");
+# print("**This is an educational project and does not constitue financial advice.**\n");
