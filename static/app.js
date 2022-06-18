@@ -14,7 +14,6 @@ let props = [
   { 1: netPay, 2: "Net Pay:" },
 ];
 
-// fill table with data
 for (let i = 0; i < props.length; i++) {
   let row = table.insertRow(i + 1);
   let cell1 = row.insertCell(0);
