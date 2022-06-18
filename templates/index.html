@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Income Tax Calculator</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>{{title}}</h1>
+      </nav>
+    </header>
+    <section>
+      <form action="/calculator" method="Get">
+        <label for="income">Income:</label>
+        <input type="text" name="income" id="income" />
+        <input type="submit" value="Calculate" />
+      </form>
+    </section>
+    <p>Federal Tax: {{"${:,.2f}".format(fedTax)}}</p>
+    <p>State Tax: {{"${:,.2f}".format(stateTax)}}</p>
+    <p>FICA: {{"${:,.2f}".format(ficaTax)}}</p>
+  </body>
+</html>

@@ -1,7 +1,8 @@
-age = int(input("How old are you? "));
-first_name = input("What is your first name? ");
-last_name = input("What is your last name? ");
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
+from views import views
 
-hello = "Hello " + first_name.capitalize() + " " + last_name + " you are " + str(age) + " years old.";
+app = Flask(__name__)
+app.register_blueprint(views, url_prefix='/')
 
-print(hello + "!");
+if __name__ == '__main__':
+    app.run(debug=True, port=8000)
