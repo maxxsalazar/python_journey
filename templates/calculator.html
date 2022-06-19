@@ -5,30 +5,102 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Income Tax Calculator</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="{{url_for('static', filename='app.css')}}" />
   </head>
   <body>
-    <header>
-      <nav>
-        <h1>{{title}}</h1>
-      </nav>
-    </header>
-    <section>
-      <form action="/calculator" method="Get">
-        <label for="income">Income:</label>
-        <input type="text" name="income" id="income" />
-        <input type="submit" value="Calculate" />
-      </form>
-    </section>
-    <section>
-      <table id="breakdownTable">
-        <tr>
-          <th>Tax Concept</th>
-          <th>Amount Due:</th>
-        </tr>
-      </table>
-    </section>
+    <nav class="navbar bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="/">{{title}}</a>
+      </div>
+    </nav>
+    <!-- New starts -->
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+      <div class="row align-items-center g-lg-5 py-5">
+        <div class="col-lg-7 text-center text-lg-start">
+          <h1 class="display-4 fw-bold lh-1 mb-3">Income Tax Breakdown</h1>
+          <p class="col-lg-10 fs-4">
+            This is a simple income tax calculation that will help you to
+            calculate taxes owed on your yearly income. It does not constitute
+            financial advice and is only for informational purposes.
+          </p>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <button
+              type="button"
+              class="btn btn-primary btn-lg px-4 me-md-2"
+              data-bs-toggle="modal"
+              data-bs-target="#modalCalculate"
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+        <div class="col-md-10 mx-auto col-lg-5">
+          <table
+            id="breakdownTable"
+            class="table table-striped border rounded-3 bg-light"
+          >
+            <tr class="table-primary">
+              <th>Tax Concept</th>
+              <th>Amount Due:</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- pre-existing starts -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="modalCalculate">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-4 shadow">
+          <div class="modal-header p-5 pb-4 border-bottom-0">
+            <h2 class="fw-bold mb-0">Need to Recalculate?</h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
 
+          <div class="modal-body p-5 pt-0">
+            <form
+              class="p-4 p-md-5 border rounded-3 bg-light"
+              action="/calculator"
+              method="Get"
+            >
+              <div class="form-floating mb-3">
+                <input
+                  class="form-control"
+                  placeholder="25000"
+                  type="text"
+                  name="income"
+                  id="income"
+                  required
+                />
+                <label for="income">Income:</label>
+              </div>
+              <button class="w-100 btn btn-lg btn-primary" type="submit">
+                Calculate
+              </button>
+              <hr class="my-4" />
+              <small class="text-muted"
+                >By clicking Calculate, you agree to the terms of use.</small
+              >
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
     <script
       type="text/javascript"
       src="{{url_for('static', filename='app.js')}}"
