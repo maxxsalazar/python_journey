@@ -48,6 +48,14 @@
               />
               <label for="income">Income:</label>
             </div>
+            <div class="form-group mb-3">
+              <label for="selectState" class="visually-hidden"
+                >Select State:</label
+              >
+              <select class="form-control" id="selectState" name="state">
+                <option value="">Select State</option>
+              </select>
+            </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">
               Calculate
             </button>
@@ -59,5 +67,9 @@
         </div>
       </div>
     </div>
+    <script
+      type="text/javascript"
+      src="{{url_for('static', filename='index.js')}}"
+    ></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, redirect, url_for
 from calculator import *
 
 views = Blueprint(__name__, 'views')
@@ -11,9 +11,12 @@ def index():
 def calculator():
     args = request.args
     salary = args.get('income')
-    fedTax = calc_fed_tax(int(salary))
-    stateTax = calc_state_tax(int(salary))
-    ficaTax = calc_fica_tax(int(salary))
-    totalTax = fedTax + stateTax + ficaTax;
-    netPay = int(salary) - totalTax;
-    return render_template('calculator.html', title='Income Tax Calculator', fedTax=fedTax, stateTax=stateTax, ficaTax=ficaTax,totalTax=totalTax, netPay=netPay)
+    if salary == None or salary == '':
+        return redirect(url_for('views.index'))
+    else:
+        fedTax = calc_fed_tax(float(salary))
+        stateTax = calc_state_tax(float(salary))
+        ficaTax = calc_fica_tax(float(salary))
+        totalTax = fedTax + stateTax + ficaTax;
+        netPay = float(salary) - totalTax;
+        return render_template('calculator.html', title='Income Tax Calculator', fedTax=fedTax, stateTax=stateTax, ficaTax=ficaTax,totalTax=totalTax, netPay=netPay, salary=float(salary))

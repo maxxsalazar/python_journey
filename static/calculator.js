@@ -1,12 +1,14 @@
-let fedTax = document.currentScript.getAttribute("fedTax"); //1
-let stateTax = document.currentScript.getAttribute("stateTax"); //2
-let ficaTax = document.currentScript.getAttribute("ficaTax"); //3
-let totalTax = document.currentScript.getAttribute("totalTax"); //4
-let netPay = document.currentScript.getAttribute("netPay"); //5
+let fedTax = document.currentScript.getAttribute("fedTax");
+let stateTax = document.currentScript.getAttribute("stateTax");
+let ficaTax = document.currentScript.getAttribute("ficaTax");
+let totalTax = document.currentScript.getAttribute("totalTax");
+let netPay = document.currentScript.getAttribute("netPay");
+let salary = document.currentScript.getAttribute("salary");
 
 let table = document.getElementById("breakdownTable");
 
 let props = [
+  { 1: salary, 2: "Yearly Income:" },
   { 1: fedTax, 2: "Federal Tax:" },
   { 1: stateTax, 2: "State Tax:" },
   { 1: ficaTax, 2: "FICA Tax:" },

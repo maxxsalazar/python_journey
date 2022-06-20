@@ -84,6 +84,14 @@
                 />
                 <label for="income">Income:</label>
               </div>
+              <div class="form-group mb-3">
+                <label for="selectState" class="visually-hidden"
+                  >Select State:</label
+                >
+                <select class="form-control" id="selectState" name="state">
+                  <option value="">Select State</option>
+                </select>
+              </div>
               <button class="w-100 btn btn-lg btn-primary" type="submit">
                 Calculate
               </button>
@@ -103,12 +111,13 @@
     ></script>
     <script
       type="text/javascript"
-      src="{{url_for('static', filename='app.js')}}"
+      src="{{url_for('static', filename='calculator.js')}}"
       fedTax="{{'${:,.2f}'.format(fedTax)}}"
       stateTax="{{'${:,.2f}'.format(stateTax)}}"
       ficaTax="{{'${:,.2f}'.format(ficaTax)}}"
       totalTax="{{'${:,.2f}'.format(totalTax)}}"
       netPay="{{'${:,.2f}'.format(netPay)}}"
+      salary="{{'${:,.2f}'.format(salary)}}"
     ></script>
   </body>
 </html>
